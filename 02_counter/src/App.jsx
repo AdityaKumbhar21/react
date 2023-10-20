@@ -3,31 +3,54 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+// Why we need Hooks
+// Hooks are used to manipulate the state in UI. There are different type of hooks like useState, useEffect,etc.
+
+// useState Hook
+// Returns an array with two parameters counter and setCounter
+// counter is used to display the changed value and setCounter is used to manipulate the value
+
 function App() {
-  const [count, setCount] = useState(0)
+ 
+  // using hook state
+  let [counter,setCounter] = useState(0)
+
+  let increaseValue = ()=>{
+    // changing counter value using setCounter
+    // limiting increasing value till 20 
+    if(counter!=20)
+    {
+      setCounter(counter+1)
+      console.log(`Counter Increased: ${counter}`);
+    }
+    else{
+      alert("Counter cannot be more than 20")
+    }
+   
+  }
+
+  let decreaseValue = ()=>{
+    // decreasing counter value
+    // limiting decreasing value till 0 
+    if(counter !=0){
+      setCounter(counter-1)
+      console.log(`Counter Decreased: ${counter}`);
+    }
+    else{
+      alert("Cannot decrease less than zero")
+    }
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Counter Project</h1>
+      <h2>Counter: {counter}</h2>
+
+      <button onClick={increaseValue}>Increase Counter value</button>
+      <button onClick={decreaseValue}>Decrease Counter value</button>
+
+      <h3>Counter: {counter}</h3>
+      <p>Footer: {counter}</p>
     </>
   )
 }
