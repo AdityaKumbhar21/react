@@ -1,0 +1,26 @@
+ let increaseValue = ()=>{
+      setCounter(counter+1)   
+  } 
+
+ Here in this function interviewer may ask:
+     let increaseValue = ()=>{
+      setCounter(counter+1)
+      setCounter(counter+1)
+      setCounter(counter+1)
+      setCounter(counter+1)
+      setCounter(counter+1)
+
+        NOW WHAT WILL BE THE VALUE OF COUNTER:  value will be 16
+        REASON:
+            As react executes using fiber the operations are sent in the form of batch and the lates one only gets executed.
+  }
+
+  If you want to update value to directly four we can do
+   let increaseValue = ()=>{
+      setCounter((prevCounter)=> prevCounter + 1)   
+      setCounter((prevCounter)=> prevCounter + 1)   
+      setCounter((prevCounter)=> prevCounter + 1)   
+      setCounter((prevCounter)=> prevCounter + 1)   
+
+      HERE THE PREVIOUS COUNTER IS RECEIEVED TO THE FUNCTION AND AFTER THE FINCTION GETS EXECUTED THE NEXT CALL IS MADE
+  } 
