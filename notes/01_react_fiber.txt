@@ -1,0 +1,13 @@
+What is react Fiber?
+    React Fiber is a well implemented algorithm for reconciliation, that is compare trees of DOM and react DOM and make changes accordingly
+
+    Functions:
+        1. pause work and come back to it later.
+        2. assign priority to different types of work.
+        3. reuse previously completed work.
+        4. abort work if it's no longer needed.
+
+What is reconciliation?
+    The algorithm React uses to diff one tree with another to determine which parts need to be changed.
+    Reconciliation is nothing but the algorithm used behind the scenes of Virtual DOM
+
