@@ -8,3 +8,10 @@
 
 ## Notes for Virtual Dom and React Fiber
 ### [Click ME](./notes/01_react_fiber.txt)
+
+## Basics of Tailwind CSS and props(Also Components)
+### [Click ME](./03_tailwind_props/)
+
+## An interview Question on Counter Project
+### [Click ME](./notes/02_counter_ques.txt)
+
