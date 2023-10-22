@@ -2,42 +2,42 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import './App.css'
 
 function App() {
-  const[length,setLength] = useState(8)
-  const[numberAllowed,setNumberAllowed] = useState(false)
-  const[charAllowed,setCharAllowed] = useState(true)
-  const[password,setPassword] = useState("")
+  const[length,setLength] = useState(8)  // for the length of the password
+  const[numberAllowed,setNumberAllowed] = useState(false) // for including or excluding numbers
+  const[charAllowed,setCharAllowed] = useState(true)  // for including or excluding special characters
+  const[password,setPassword] = useState("") // for generating random password
 
 
   let passwordGenerator = useCallback(()=>{
     let pass = ""
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     if(numberAllowed) {
-      str += "0123456789"
+      str += "0123456789"  // if number is checked then will include numbers in string
     }
     if(charAllowed){
-      str +="!@#$%^&*(){}~`[]><?/"
+      str +="!@#$%^&*(){}~`[]><?/" // if special characters is checked then will include special characters in string
     }
    
     for (let i = 1; i <= length; i++) {
-      let char = Math.floor(Math.random()* str.length + 1)
-      pass += str.charAt(char)
+      let char = Math.floor(Math.random()* str.length + 1)  // for generating an random index to generate password
+      pass += str.charAt(char) // adding that string to password
       
     }
 
-    setPassword(pass)
-  },[length,numberAllowed,charAllowed,setPassword])
+    setPassword(pass) // setting the generated random password to the main password
+  },[length,numberAllowed,charAllowed,setPassword]) // dependencies, that is it will store the function in cache as much as possible rather than rendering continously
 
-  let passwordRef = useRef(null)
+  let passwordRef = useRef(null) // Giving reference of the password
   let copyToClipBoard = useCallback(()=>{
     // more oprimization
     passwordRef.current?.select();
     passwordRef.current?.setSelectionRange(0,20)
-    window.navigator.clipboard.writeText(password)
+    window.navigator.clipboard.writeText(password) // copying the text to the clipboard
   },[password])
 
   useEffect(()=>{
     passwordGenerator()
-  },[length,numberAllowed,charAllowed,passwordGenerator])
+  },[length,numberAllowed,charAllowed,passwordGenerator]) // Running the function when there is any change in folloeing dependencies
 
   return (
       <>
@@ -49,7 +49,7 @@ function App() {
         className="outline-none w-full py-1 px-3"
             placeholder="Password"
             readOnly
-            ref={passwordRef} 
+            ref={passwordRef} // adding refrence here to copy the password
         />
         <button
        
