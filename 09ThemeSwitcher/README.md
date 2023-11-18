@@ -1,8 +1,4 @@
-# React + Vite
+# Context Notes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Context API:  In React, the Context API is a mechanism that allows you to share values like props across a tree of React components without explicitly passing the values through each component. It provides a way to pass data through the component tree without having to pass props down manually at every level.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
